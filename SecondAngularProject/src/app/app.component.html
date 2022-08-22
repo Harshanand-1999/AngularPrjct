@@ -1,0 +1,89 @@
+<h1>nana</h1>
+<app-login></app-login>
+<app-user-list></app-user-list>
+<app-student-list></app-student-list>
+<app-country-list></app-country-list>
+<app-sign-in></app-sign-in>
+<button (click)="Click('Anil',1)">Click</button>
+<br/><br/>
+<input type="text" #ku placeholder="KeyUp Event" (keyup)="KeyUp(ku.value)"/>
+<input type="text" #kd placeholder="KeyDowm Event" (keydown)="KeyDown(kd.value)"/>
+<br/>
+<br/>
+<input type="text" #b placeholder="blur" (blur)="Blur(b.value)"/>
+<input type="text" #i placeholder="input event " (input)="Input(i.value)"/>
+<br/> <br/>
+<h1 (mouseover)="Mouseoverorleave('over')">Mouseover event</h1>
+<br/> <br/>
+<h1 (mouseleave)="Mouseoverorleave('leave')">Mouseleave event</h1>
+<br/><br/>
+<input type="text" #input placeholder="Write name" (keyup)="GetName(input.value)" name="inputname" />
+<br/><br/>
+<h1>the name is {{name}}</h1>
+<br/><br/>
+<input type="text" placeholder="Lastname" name="lastname" #lastname/>
+<br/><br/>
+<button (click)="GetName(lastname.value)">click</button>
+<br/><br/>
+<p>lastname is {{name}}</p>
+<br/>
+<br/>
+<button (click)="counter('true')">++</button>
+<p>{{count}}</p>
+<button (click)="counter('false')">--</button>
+<style>
+  h1{
+    color: red;
+  }
+</style>
+
+<br/><br/>
+<input type="text" name="namefield" value={{qname}} disabled={{disable}}/>
+<br><br><br>
+<input type="text" name="surnamefield" [value]=qname [disabled]=disable/>
+
+
+
+<h1 *ngIf="show">If is show</h1>
+
+<br><br><br>
+
+<h1 *ngIf="show else elseblock">show is true</h1>
+<ng-template #elseblock>
+  <h1>we are in else</h1>
+</ng-template>
+
+<br><br><br>
+
+<h1 *ngIf="show1 then ifblock else elseblock"></h1>
+
+<ng-template #ifblock>
+  <h1>if block</h1>
+</ng-template>
+
+<br><br><br>
+
+<h1 *ngIf="showman=='nana'; then ifblock else elseblock"></h1>
+<br><br>
+<ng-template [ngIf]="color==='red'">
+  <h2 style="color: red;">red</h2>
+</ng-template>
+<br><br>
+<ng-template [ngIf]="color==='green'">
+  <h2 style="color: green;">green</h2>
+</ng-template>
+<br><br>
+<ng-template [ngIf]="color==='blue'">
+  <h2 style="color: blue;">blue</h2>
+</ng-template>
+
+<div [ngSwitch]="color">
+  <h1 *ngSwitchCase="'red'">red</h1>
+  <h1 *ngSwitchCase="'blue'">blue</h1>
+  <h1 *ngSwitchCase="'green'">green</h1>
+  <h1 *ngSwitchCase="'golden'">golden</h1>
+  <h1 *ngSwitchCase="'yellow'">yellow</h1>
+  <h1 *ngSwithDefault>unknown</h1>
+</div>
+
+
